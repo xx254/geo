@@ -25,9 +25,9 @@
       "name": "Find Top URLs for Keywords",
       "module_name": "steps.step_03_top_urls_finder",
       "function_name": "execute_step",
-      "description": "Find top-ranking URLs for keywords using Browserbase automation",
+      "description": "Find top-ranking URLs for keywords using Browserbase + Bing search automation",
       "input_type": "List[str] (keywords)",
-      "output_type": "Dict[str, List[str]] (keyword to URLs mapping)",
+      "output_type": "List[str] (top URLs found for all keywords)",
       "enabled": true
     },
     {
@@ -35,7 +35,7 @@
       "module_name": "steps.step_04_content_analyzer",
       "function_name": "execute_step",
       "description": "Analyze content quality and SEO metrics using Firecrawl",
-      "input_type": "Dict[str, List[str]] (keyword to URLs mapping)",
+      "input_type": "List[str] (URLs to analyze)",
       "output_type": "Dict[str, Dict[str, Any]] (content analysis results)",
       "enabled": true
     }
