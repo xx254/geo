@@ -63,7 +63,7 @@ Example transformations:
 - "seo tools" → "best free seo tools for small business websites 2024"
 - "digital marketing" → "what are the most effective digital marketing strategies for startups"
 
-Return exactly 10-20 long-tail keywords that represent real user search intent."""
+Return exactly 3 long-tail keywords that represent real user search intent."""
 
 def create_user_prompt(keywords: List[str]) -> str:
     """

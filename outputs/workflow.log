@@ -327,3 +327,181 @@ Call log:
 ValueError: keyword_urls must be a non-empty dictionary
 
 2025-05-30 15:58:52.477 | ERROR    | __main__:run_workflow_cli:105 - ❌ Workflow failed: Error in step Analyze Content Quality: keyword_urls must be a non-empty dictionary
+2025-05-30 16:06:33.424 | INFO     | workflow_core:register_step:103 - Registering step: Extract Keywords from Website
+2025-05-30 16:06:33.424 | INFO     | workflow_core:register_step:103 - Registering step: Generate Long-tail Keywords
+2025-05-30 16:06:33.424 | INFO     | workflow_core:register_step:103 - Registering step: Find Top URLs for Keywords
+2025-05-30 16:06:33.425 | INFO     | workflow_core:register_step:103 - Registering step: Analyze Content Quality
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:259 - Registered workflow steps (4 total):
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:262 -   1. Extract Keywords from Website (✓ Enabled)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:263 -      Extract initial keywords from website URL using Apify Actor
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:264 -      Input: str (website URL) → Output: List[str] (extracted keywords)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:262 -   2. Generate Long-tail Keywords (✓ Enabled)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:263 -      Expand base keywords into long-tail variations using OpenAI
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (base keywords) → Output: List[str] (expanded keywords)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:262 -   3. Find Top URLs for Keywords (✓ Enabled)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:263 -      Find top-ranking URLs for keywords using Browserbase + Bing search automation
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (keywords) → Output: List[str] (top URLs found for all keywords)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:262 -   4. Analyze Content Quality (✓ Enabled)
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:263 -      Analyze content quality and SEO metrics using Firecrawl
+2025-05-30 16:06:33.425 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (URLs to analyze) → Output: Dict[str, Dict[str, Any]] (content analysis results)
+2025-05-30 16:06:33.426 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:06:44.326 | INFO     | workflow_core:execute_workflow:168 - Starting workflow execution with 4 steps
+2025-05-30 16:06:44.328 | INFO     | workflow_core:execute_workflow:169 - Initial input: https://www.hovi.ai
+2025-05-30 16:06:44.329 | INFO     | workflow_core:execute_workflow:177 - Executing step 1/4: Extract Keywords from Website
+2025-05-30 16:06:44.329 | INFO     | workflow_core:execute_workflow:178 - Step description: Extract initial keywords from website URL using Apify Actor
+2025-05-30 16:06:44.329 | INFO     | workflow_core:execute_workflow:179 - Expected input: str (website URL) -> Expected output: List[str] (extracted keywords)
+2025-05-30 16:06:44.462 | INFO     | steps.step_01_keyword_generator:execute_step:50 - Starting keyword extraction for URL: https://www.hovi.ai
+2025-05-30 16:06:44.586 | INFO     | steps.step_01_keyword_generator:execute_step:68 - Running Apify Actor with URL: https://www.hovi.ai
+2025-05-30 16:06:44.586 | INFO     | steps.step_01_keyword_generator:execute_step:69 - Using Actor ID: rEbWw5H3urseNjdNw
+2025-05-30 16:06:51.609 | INFO     | steps.step_01_keyword_generator:execute_step:75 - Actor completed! Run ID: AC7PqT1QhayKLFCW0
+2025-05-30 16:06:51.609 | INFO     | steps.step_01_keyword_generator:execute_step:76 - Extracting keywords from results...
+2025-05-30 16:06:51.727 | INFO     | steps.step_01_keyword_generator:execute_step:111 - Extracted 0 total keywords
+2025-05-30 16:06:51.728 | INFO     | steps.step_01_keyword_generator:execute_step:121 - Returning 0 unique keywords
+2025-05-30 16:06:51.733 | INFO     | workflow_core:execute_workflow:195 - Step Extract Keywords from Website completed successfully
+2025-05-30 16:06:51.733 | INFO     | workflow_core:execute_workflow:177 - Executing step 2/4: Generate Long-tail Keywords
+2025-05-30 16:06:51.733 | INFO     | workflow_core:execute_workflow:178 - Step description: Expand base keywords into long-tail variations using OpenAI
+2025-05-30 16:06:51.733 | INFO     | workflow_core:execute_workflow:179 - Expected input: List[str] (base keywords) -> Expected output: List[str] (expanded keywords)
+2025-05-30 16:06:52.050 | ERROR    | workflow_core:execute_workflow:200 - Error in step Generate Long-tail Keywords: Keywords must be a non-empty list
+2025-05-30 16:06:52.050 | ERROR    | workflow_core:execute_workflow:201 - Traceback (most recent call last):
+  File "/Users/palashkala/Documents/Startup/Tech experiments/hackathons/amazon-hackathon/geo/workflow_core.py", line 184, in execute_workflow
+    result = step_function(current_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/palashkala/Documents/Startup/Tech experiments/hackathons/amazon-hackathon/geo/steps/step_02_longtail_keywords.py", line 111, in execute_step
+    raise ValueError("Keywords must be a non-empty list")
+ValueError: Keywords must be a non-empty list
+
+2025-05-30 16:07:42.505 | INFO     | workflow_core:register_step:103 - Registering step: Extract Keywords from Website
+2025-05-30 16:07:42.506 | INFO     | workflow_core:register_step:103 - Registering step: Generate Long-tail Keywords
+2025-05-30 16:07:42.506 | INFO     | workflow_core:register_step:103 - Registering step: Find Top URLs for Keywords
+2025-05-30 16:07:42.506 | INFO     | workflow_core:register_step:103 - Registering step: Analyze Content Quality
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:259 - Registered workflow steps (4 total):
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:262 -   1. Extract Keywords from Website (✓ Enabled)
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:263 -      Extract initial keywords from website URL using Apify Actor
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:264 -      Input: str (website URL) → Output: List[str] (extracted keywords)
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:262 -   2. Generate Long-tail Keywords (✓ Enabled)
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:263 -      Expand base keywords into long-tail variations using OpenAI
+2025-05-30 16:07:42.506 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (base keywords) → Output: List[str] (expanded keywords)
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:262 -   3. Find Top URLs for Keywords (✓ Enabled)
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:263 -      Find top-ranking URLs for keywords using Browserbase + Bing search automation
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (keywords) → Output: List[str] (top URLs found for all keywords)
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:262 -   4. Analyze Content Quality (✓ Enabled)
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:263 -      Analyze content quality and SEO metrics using Firecrawl
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (URLs to analyze) → Output: Dict[str, Dict[str, Any]] (content analysis results)
+2025-05-30 16:07:42.507 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 16:07:43.929 | INFO     | workflow_core:execute_workflow:168 - Starting workflow execution with 4 steps
+2025-05-30 16:07:43.929 | INFO     | workflow_core:execute_workflow:169 - Initial input: https://www.samsung.com
+2025-05-30 16:07:43.930 | INFO     | workflow_core:execute_workflow:177 - Executing step 1/4: Extract Keywords from Website
+2025-05-30 16:07:43.930 | INFO     | workflow_core:execute_workflow:178 - Step description: Extract initial keywords from website URL using Apify Actor
+2025-05-30 16:07:43.930 | INFO     | workflow_core:execute_workflow:179 - Expected input: str (website URL) -> Expected output: List[str] (extracted keywords)
+2025-05-30 16:07:44.042 | INFO     | steps.step_01_keyword_generator:execute_step:50 - Starting keyword extraction for URL: https://www.samsung.com
+2025-05-30 16:07:44.163 | INFO     | steps.step_01_keyword_generator:execute_step:68 - Running Apify Actor with URL: https://www.samsung.com
+2025-05-30 16:07:44.163 | INFO     | steps.step_01_keyword_generator:execute_step:69 - Using Actor ID: rEbWw5H3urseNjdNw
+2025-05-30 16:08:21.929 | INFO     | steps.step_01_keyword_generator:execute_step:75 - Actor completed! Run ID: 9cXZTnnXZFo7oBgdh
+2025-05-30 16:08:21.930 | INFO     | steps.step_01_keyword_generator:execute_step:76 - Extracting keywords from results...
+2025-05-30 16:08:22.299 | INFO     | steps.step_01_keyword_generator:execute_step:111 - Extracted 1000 total keywords
+2025-05-30 16:08:22.299 | INFO     | steps.step_01_keyword_generator:execute_step:121 - Returning 1000 unique keywords
+2025-05-30 16:08:22.304 | INFO     | workflow_core:execute_workflow:195 - Step Extract Keywords from Website completed successfully
+2025-05-30 16:08:22.304 | INFO     | workflow_core:execute_workflow:177 - Executing step 2/4: Generate Long-tail Keywords
+2025-05-30 16:08:22.304 | INFO     | workflow_core:execute_workflow:178 - Step description: Expand base keywords into long-tail variations using OpenAI
+2025-05-30 16:08:22.304 | INFO     | workflow_core:execute_workflow:179 - Expected input: List[str] (base keywords) -> Expected output: List[str] (expanded keywords)
+2025-05-30 16:08:22.691 | INFO     | steps.step_02_longtail_keywords:execute_step:125 - Generating long-tail keywords from 1000 short keywords using gpt-4o structured outputs
+2025-05-30 16:08:22.691 | INFO     | steps.step_02_longtail_keywords:execute_step:126 - Sample keywords: ['03 ms monitor', '0e samsung washing machine', '1 800 samsung', '1 800 samsung phone number', '1 battery screenshot samsung', '1 ton ac samsung', '1 ui', '1 ui samsung', '1 year warranty samsung', '1-800-samsung']
+2025-05-30 16:08:22.709 | INFO     | steps.step_02_longtail_keywords:create_user_prompt:76 - Limited keywords to first 150 to stay within token limits
+2025-05-30 16:08:22.709 | INFO     | steps.step_02_longtail_keywords:execute_step:143 - Calling OpenAI gpt-4o API with structured outputs for long-tail keyword generation
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:168 - OpenAI reasoning: In selecting these long-tail search queries, I focused on identifying queries that reflect genuine user needs and questions, particularly those that might arise from common issues or decisions users face when interacting with Samsung products. This includes troubleshooting common errors (like the 0e error on washing machines), understanding product features and benefits (such as warranties and product specifications), and making purchasing decisions (like choosing between different models or understanding pricing). Additionally, I included queries that users might make to explore new features or technologies offered by Samsung, such as the latest One UI updates or 8K TVs. Each query is crafted to sound natural and conversational, reflecting how users typically phrase their questions in search engines or when speaking to AI assistants.
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:182 - Generated 20 long-tail keywords using structured outputs
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:183 - Long-tail keywords:
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    1. how to fix 0e error on a samsung washing machine
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    2. what is the phone number for samsung customer support
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    3. steps to take a screenshot on samsung with one battery
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    4. best 1 ton air conditioner models by samsung
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    5. how to update to the latest version of samsung one ui
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    6. is the samsung 1 year warranty worth it for electronics
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    7. how to choose the best 1.7 cu ft over the range microwave
+2025-05-30 16:08:34.670 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    8. best 108 megapixel camera phones from samsung
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -    9. how to connect two bluetooth speakers at once on android
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   10. features of the samsung 110-inch micro led tv
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   11. best 128 gb sd card options from samsung
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   12. how to maximize samsung refrigerator's 10-year warranty benefits
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   13. what is the price of a 100 inch samsung 8k tv
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   14. how to set up a samsung 120hz tv for gaming
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   15. is the samsung 18 inch dishwasher a good buy
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   16. how does the samsung 15w wireless charger duo work
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   17. which samsung 16gb tablet is best for students
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   18. how to resolve 1e error code on samsung washing machine
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   19. how to use samsung 1tb micro sd card in android phones
+2025-05-30 16:08:34.671 | INFO     | steps.step_02_longtail_keywords:execute_step:185 -   20. what is samsung's 2 in 1 washer and dryer and its benefits
+2025-05-30 16:08:34.672 | INFO     | workflow_core:execute_workflow:195 - Step Generate Long-tail Keywords completed successfully
+2025-05-30 16:08:34.672 | INFO     | workflow_core:execute_workflow:177 - Executing step 3/4: Find Top URLs for Keywords
+2025-05-30 16:08:34.672 | INFO     | workflow_core:execute_workflow:178 - Step description: Find top-ranking URLs for keywords using Browserbase + Bing search automation
+2025-05-30 16:08:34.672 | INFO     | workflow_core:execute_workflow:179 - Expected input: List[str] (keywords) -> Expected output: List[str] (top URLs found for all keywords)
+2025-05-30 16:08:34.741 | WARNING  | steps.step_03_top_urls_finder:execute_step:316 - Too many keywords (20), limiting to first 10
+2025-05-30 16:08:34.741 | INFO     | steps.step_03_top_urls_finder:execute_step:319 - Starting URL search for 10 keywords
+2025-05-30 16:08:34.741 | INFO     | steps.step_03_top_urls_finder:execute_step:320 - Keywords: ['how to fix 0e error on a samsung washing machine', 'what is the phone number for samsung customer support', 'steps to take a screenshot on samsung with one battery', 'best 1 ton air conditioner models by samsung', 'how to update to the latest version of samsung one ui', 'is the samsung 1 year warranty worth it for electronics', 'how to choose the best 1.7 cu ft over the range microwave', 'best 108 megapixel camera phones from samsung', 'how to connect two bluetooth speakers at once on android', 'features of the samsung 110-inch micro led tv']
+2025-05-30 16:08:35.246 | INFO     | steps.step_03_top_urls_finder:execute_step:337 - Processing keyword 1/10: 'how to fix 0e error on a samsung washing machine'
+2025-05-30 16:08:35.246 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:120 - Starting Bing search for keyword: 'how to fix 0e error on a samsung washing machine'
+2025-05-30 16:08:35.536 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:134 - Created Browserbase session: 878d3f2d-59d2-4c45-b1fa-a9e211a08311
+2025-05-30 16:08:36.314 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:144 - Navigating to Bing...
+2025-05-30 16:08:50.923 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:148 - Waiting for Bing homepage to load...
+2025-05-30 16:08:51.384 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:150 - Bing homepage loaded successfully
+2025-05-30 16:08:51.385 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:153 - Searching Bing for: "how to fix 0e error on a samsung washing machine"
+2025-05-30 16:08:52.324 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:160 - Search submitted, waiting for search results page to load...
+2025-05-30 16:08:57.810 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:198 - Search results page loaded, proceeding with extraction...
+2025-05-30 16:08:57.811 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:28 - Extracting URLs from page 1 for keyword: 'how to fix 0e error on a samsung washing machine'
+2025-05-30 16:08:58.611 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:58 - Page 1: Processing 10 containers for 'how to fix 0e error on a samsung washing machine'
+2025-05-30 16:09:04.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:205 - Page 1 summary for "how to fix 0e error on a samsung washing machine":
+2025-05-30 16:09:04.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:206 - - Found 10 .b_algo containers
+2025-05-30 16:09:04.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:207 - - Extracted 10 valid URLs
+2025-05-30 16:09:04.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:268 - Final results for "how to fix 0e error on a samsung washing machine": 3 URLs
+2025-05-30 16:09:04.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:270 - URLs found for "how to fix 0e error on a samsung washing machine":
+2025-05-30 16:09:04.167 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   1. https://samsungtechwin.com/samsung-washer-oe-code-error/
+2025-05-30 16:09:04.167 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   2. https://www.youtube.com/watch?v=QTg_wKuyF7o
+2025-05-30 16:09:04.167 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   3. https://www.funktionalhome.com/samsung-washer-oe-code/
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:284 - Browserbase session replay: https://browserbase.com/sessions/878d3f2d-59d2-4c45-b1fa-a9e211a08311
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:execute_step:344 - Found 3 URLs for 'how to fix 0e error on a samsung washing machine'
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:execute_step:345 - URLs for 'how to fix 0e error on a samsung washing machine':
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   1. https://samsungtechwin.com/samsung-washer-oe-code-error/
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   2. https://www.youtube.com/watch?v=QTg_wKuyF7o
+2025-05-30 16:09:04.322 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   3. https://www.funktionalhome.com/samsung-washer-oe-code/
+2025-05-30 16:09:06.328 | INFO     | steps.step_03_top_urls_finder:execute_step:337 - Processing keyword 2/10: 'what is the phone number for samsung customer support'
+2025-05-30 16:09:06.329 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:120 - Starting Bing search for keyword: 'what is the phone number for samsung customer support'
+2025-05-30 16:09:06.621 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:134 - Created Browserbase session: a3ce1e25-f149-4a79-b2b2-a21b3f8676a4
+2025-05-30 16:09:07.366 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:144 - Navigating to Bing...
+2025-05-30 16:10:02.571 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:148 - Waiting for Bing homepage to load...
+2025-05-30 16:10:05.657 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:150 - Bing homepage loaded successfully
+2025-05-30 16:10:05.657 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:153 - Searching Bing for: "what is the phone number for samsung customer support"
+2025-05-30 16:10:10.582 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:160 - Search submitted, waiting for search results page to load...
+2025-05-30 16:10:16.573 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:198 - Search results page loaded, proceeding with extraction...
+2025-05-30 16:10:16.574 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:28 - Extracting URLs from page 1 for keyword: 'what is the phone number for samsung customer support'
+2025-05-30 16:10:17.279 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:58 - Page 1: Processing 2 containers for 'what is the phone number for samsung customer support'
+2025-05-30 16:10:18.339 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:205 - Page 1 summary for "what is the phone number for samsung customer support":
+2025-05-30 16:10:18.340 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:206 - - Found 2 .b_algo containers
+2025-05-30 16:10:18.341 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:207 - - Extracted 2 valid URLs
+2025-05-30 16:10:18.341 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:211 - Need more URLs for "what is the phone number for samsung customer support" (have 2, want 3)
+2025-05-30 16:10:18.341 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:212 - Looking for "Next" button to go to page 2...
+2025-05-30 16:10:19.166 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:236 - Clicked next button, waiting for page 2...
+2025-05-30 16:10:22.370 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:28 - Extracting URLs from page 2 for keyword: 'what is the phone number for samsung customer support'
+2025-05-30 16:10:23.086 | INFO     | steps.step_03_top_urls_finder:extract_urls_from_page:58 - Page 2: Processing 13 containers for 'what is the phone number for samsung customer support'
+2025-05-30 16:10:30.054 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:247 - Page 2 summary for "what is the phone number for samsung customer support":
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:248 - - Found 13 .b_algo containers
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:249 - - Extracted 13 valid URLs
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:268 - Final results for "what is the phone number for samsung customer support": 3 URLs
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:270 - URLs found for "what is the phone number for samsung customer support":
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   1. https://www.samsung.com/us/support/contact/
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   2. https://us.community.samsung.com/t5/Samsung-Apps-and-Services/Does-anyone-have-the-number-for-the-Samsung-Contact-center/td-p/2679480
+2025-05-30 16:10:30.055 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:272 -   3. https://www.samsung.com/us/support/mobile/phones/
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:284 - Browserbase session replay: https://browserbase.com/sessions/a3ce1e25-f149-4a79-b2b2-a21b3f8676a4
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:execute_step:344 - Found 3 URLs for 'what is the phone number for samsung customer support'
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:execute_step:345 - URLs for 'what is the phone number for samsung customer support':
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   1. https://www.samsung.com/us/support/contact/
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   2. https://us.community.samsung.com/t5/Samsung-Apps-and-Services/Does-anyone-have-the-number-for-the-Samsung-Contact-center/td-p/2679480
+2025-05-30 16:10:30.280 | INFO     | steps.step_03_top_urls_finder:execute_step:347 -   3. https://www.samsung.com/us/support/mobile/phones/
+2025-05-30 16:10:32.285 | INFO     | steps.step_03_top_urls_finder:execute_step:337 - Processing keyword 3/10: 'steps to take a screenshot on samsung with one battery'
+2025-05-30 16:10:32.285 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:120 - Starting Bing search for keyword: 'steps to take a screenshot on samsung with one battery'
+2025-05-30 16:10:32.603 | INFO     | steps.step_03_top_urls_finder:search_keyword_on_bing:134 - Created Browserbase session: 65499084-0bf4-4ae7-91ef-ff62921ee5f2
