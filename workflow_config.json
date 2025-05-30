@@ -1,0 +1,49 @@
+{
+  "workflow_name": "Website Analysis Pipeline",
+  "description": "Complete workflow from website URL to keyword research and competitive analysis",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "name": "Extract Keywords from Website",
+      "module_name": "steps.step_01_keyword_generator",
+      "function_name": "execute_step",
+      "description": "Extract initial keywords from website URL using Apify Actor",
+      "input_type": "str (website URL)",
+      "output_type": "List[str] (extracted keywords)",
+      "enabled": true
+    },
+    {
+      "name": "Generate Long-tail Keywords",
+      "module_name": "steps.step_02_longtail_keywords",
+      "function_name": "execute_step",
+      "description": "Expand base keywords into long-tail variations using OpenAI",
+      "input_type": "List[str] (base keywords)",
+      "output_type": "List[str] (expanded keywords)",
+      "enabled": true
+    },
+    {
+      "name": "Find Top URLs for Keywords",
+      "module_name": "steps.step_03_top_urls_finder",
+      "function_name": "execute_step",
+      "description": "Find top-ranking URLs for keywords using Browserbase automation",
+      "input_type": "List[str] (keywords)",
+      "output_type": "Dict[str, List[str]] (keyword to URLs mapping)",
+      "enabled": true
+    },
+    {
+      "name": "Analyze Content Quality",
+      "module_name": "steps.step_04_content_analyzer",
+      "function_name": "execute_step",
+      "description": "Analyze content quality and SEO metrics using Firecrawl",
+      "input_type": "Dict[str, List[str]] (keyword to URLs mapping)",
+      "output_type": "Dict[str, Dict[str, Any]] (content analysis results)",
+      "enabled": true
+    }
+  ],
+  "settings": {
+    "save_intermediate_results": true,
+    "continue_on_step_failure": false,
+    "max_retries_per_step": 2,
+    "output_format": "json"
+  }
+}

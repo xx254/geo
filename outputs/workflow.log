@@ -1,0 +1,37 @@
+2025-05-30 15:28:48.316 | INFO     | workflow_core:register_step:103 - Registering step: Extract Keywords from Website
+2025-05-30 15:28:48.317 | INFO     | workflow_core:register_step:103 - Registering step: Generate Long-tail Keywords
+2025-05-30 15:28:48.317 | INFO     | workflow_core:register_step:103 - Registering step: Find Top URLs for Keywords
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:259 - Registered workflow steps (3 total):
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:262 -   1. Extract Keywords from Website (✓ Enabled)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:263 -      Extract initial keywords from website URL using Apify Actor
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:264 -      Input: str (website URL) → Output: List[str] (extracted keywords)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:262 -   2. Generate Long-tail Keywords (✓ Enabled)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:263 -      Expand base keywords into long-tail variations using OpenAI
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (base keywords) → Output: List[str] (expanded keywords)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:262 -   3. Find Top URLs for Keywords (✓ Enabled)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:263 -      Find top-ranking URLs for keywords using Browserbase automation
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (keywords) → Output: Dict[str, List[str]] (keyword to URLs mapping)
+2025-05-30 15:28:48.317 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:29:07.781 | INFO     | workflow_core:register_step:103 - Registering step: Extract Keywords from Website
+2025-05-30 15:29:07.782 | INFO     | workflow_core:register_step:103 - Registering step: Generate Long-tail Keywords
+2025-05-30 15:29:07.782 | INFO     | workflow_core:register_step:103 - Registering step: Find Top URLs for Keywords
+2025-05-30 15:29:07.782 | INFO     | workflow_core:register_step:103 - Registering step: Analyze Content Quality
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:259 - Registered workflow steps (4 total):
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:262 -   1. Extract Keywords from Website (✓ Enabled)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:263 -      Extract initial keywords from website URL using Apify Actor
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:264 -      Input: str (website URL) → Output: List[str] (extracted keywords)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:262 -   2. Generate Long-tail Keywords (✓ Enabled)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:263 -      Expand base keywords into long-tail variations using OpenAI
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (base keywords) → Output: List[str] (expanded keywords)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:262 -   3. Find Top URLs for Keywords (✓ Enabled)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:263 -      Find top-ranking URLs for keywords using Browserbase automation
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:264 -      Input: List[str] (keywords) → Output: Dict[str, List[str]] (keyword to URLs mapping)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:265 - 
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:262 -   4. Analyze Content Quality (✓ Enabled)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:263 -      Analyze content quality and SEO metrics using Firecrawl
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:264 -      Input: Dict[str, List[str]] (keyword to URLs mapping) → Output: Dict[str, Dict[str, Any]] (content analysis results)
+2025-05-30 15:29:07.782 | INFO     | workflow_core:list_steps:265 - 

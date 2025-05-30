@@ -1,0 +1,20 @@
+# Core workflow dependencies
+apify-client>=1.0.0
+openai>=1.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Web scraping and automation
+firecrawl-py>=0.0.9
+browserbase>=0.1.0
+selenium>=4.15.0
+
+# Data processing
+pandas>=2.0.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Utility libraries
+pydantic>=2.0.0
+click>=8.1.0
+loguru>=0.7.0 
